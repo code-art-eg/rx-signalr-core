@@ -1,8 +1,8 @@
 {
-  "name": "rx-signalr-core",
-  "version": "0.0.1",
+  "name": "@code-art/rx-signalr-core",
+  "version": "1.0.0",
   "peerDependencies": {
-    "@angular/common": "^8.2.14",
-    "@angular/core": "^8.2.14"
+    "@microsoft/signalr": "^3.1.2",
+    "rxjs": "^6.4.0"
   }
 }

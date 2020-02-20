@@ -141,7 +141,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/rx-signalr-core/src/test.ts",
+            "main": "projects/rx-signalr-core/test/test.ts",
             "tsConfig": "projects/rx-signalr-core/tsconfig.spec.json",
             "karmaConfig": "projects/rx-signalr-core/karma.conf.js"
           }

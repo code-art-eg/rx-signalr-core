@@ -222,15 +222,6 @@
   dependencies:
     tslib "^1.9.0"
 
-"@aspnet/signalr@^1.1.4":
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/@aspnet/signalr/-/signalr-1.1.4.tgz#417cf808f4074a8aec45d27f03c4b8df9d96bb0b"
-  integrity sha512-Jp9nPc8hmmhbG9OKiHe2fOKskBHfg+3Y9foSKHxjgGtyI743hXjGFv3uFlUg503K9f8Ilu63gQt3fDkLICBRyg==
-  dependencies:
-    eventsource "^1.0.7"
-    request "^2.88.0"
-    ws "^6.0.0"
-
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.8.3":
   version "7.8.3"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.8.3.tgz#33e25903d7481181534e12ec0a25f16b6fcf419e"
@@ -962,6 +953,15 @@
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/@istanbuljs/schema/-/schema-0.1.2.tgz#26520bf09abe4a5644cd5414e37125a8954241dd"
   integrity sha512-tsAQNx32a8CoFhjhijUIhI4kccIAgmGhy8LZMZgGfmXcpMbPRUqn5LWmgRttILi6yeGmBJd2xsPkFMs0PzgPCw==
+
+"@microsoft/signalr@^3.1.2":
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/@microsoft/signalr/-/signalr-3.1.2.tgz#74561aea8a7e1fb8a6f5d428149a2b81cafe188a"
+  integrity sha512-NeOJQUvkONpbGdkm/q+riYRomInY3Jm8U1hfCWxwdGn3hoS4m54jyb2ix5V0lgOWBHwpTdgW9i3YI7TFf8AdhA==
+  dependencies:
+    eventsource "^1.0.7"
+    request "^2.88.0"
+    ws "^6.0.0"
 
 "@ngtools/webpack@8.3.25":
   version "8.3.25"

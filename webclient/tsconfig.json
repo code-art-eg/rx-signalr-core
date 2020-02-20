@@ -7,6 +7,7 @@
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
+    "strict": true,
     "module": "esnext",
     "moduleResolution": "node",
     "importHelpers": true,
@@ -19,12 +20,9 @@
       "dom"
     ],
     "paths": {
-      "rx-signalr-core": [
-        "dist/rx-signalr-core"
+      "@code-art/rx-signalr-core": [
+        "projects/rx-signalr-core/src/public-api"
       ],
-      "rx-signalr-core/*": [
-        "dist/rx-signalr-core/*"
-      ]
     }
   },
   "angularCompilerOptions": {
