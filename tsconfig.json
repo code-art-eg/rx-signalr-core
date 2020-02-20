@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "rx-signalr-core": [
+        "dist/rx-signalr-core"
+      ],
+      "rx-signalr-core/*": [
+        "dist/rx-signalr-core/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

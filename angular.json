@@ -124,6 +124,41 @@
           }
         }
       }
+    },
+    "rx-signalr-core": {
+      "projectType": "library",
+      "root": "projects/rx-signalr-core",
+      "sourceRoot": "projects/rx-signalr-core/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/rx-signalr-core/tsconfig.lib.json",
+            "project": "projects/rx-signalr-core/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/rx-signalr-core/src/test.ts",
+            "tsConfig": "projects/rx-signalr-core/tsconfig.spec.json",
+            "karmaConfig": "projects/rx-signalr-core/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/rx-signalr-core/tsconfig.lib.json",
+              "projects/rx-signalr-core/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "rx-signalr-core-app"
 }
