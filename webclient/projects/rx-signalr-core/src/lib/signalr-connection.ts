@@ -3,7 +3,7 @@ import { RefCountedObjectCollection } from './ref-counted-object-collection';
 import { ConnectionOptions } from './models';
 import { sameConnectionOptions, getConnectionStateName } from './utils';
 import { HubConnection, HubConnectionState, RetryContext, LogLevel } from '@microsoft/signalr';
-import { BehaviorSubject, Subscription } from 'rxjs';
+import { BehaviorSubject, Subscription, Observable } from 'rxjs';
 import { shareReplay, map, filter, take } from 'rxjs/operators';
 import { GroupInfo } from './group-info';
 
@@ -34,6 +34,18 @@ interface HubCallback {
   callback: HubCallbackFunction;
 }
 
+export function createSignalRConnection(options: ConnectionOptions): SignalRConnection {
+  return new SignalRConnection(options);
+}
+
+export function getGroupInfoFactory(connection: SignalRConnection): (n: string) => GroupInfo {
+  return (n: string) => new GroupInfo(connection, n);
+}
+
+export function tripleEqual(o1: any, o2: any): boolean {
+  return o1 === o2;
+}
+
 /**
  * SignalR hub connection wrapper
  */
@@ -42,7 +54,7 @@ export class SignalRConnection extends KeyedRefCountedObject<ConnectionOptions> 
    * Tracks all connections
    */
   private static _connections = new RefCountedObjectCollection<SignalRConnection, ConnectionOptions>(
-    (options) => new SignalRConnection(options),
+    createSignalRConnection,
     sameConnectionOptions,
   );
 
@@ -60,7 +72,7 @@ export class SignalRConnection extends KeyedRefCountedObject<ConnectionOptions> 
    * Tracks groups
    */
   private readonly _groups = new RefCountedObjectCollection<GroupInfo, string>(
-    (n: string) => new GroupInfo(this, n), (k1, k2) => k1 === k2);
+    getGroupInfoFactory(this), tripleEqual);
 
   /**
    * list of hub call backs
@@ -83,10 +95,7 @@ export class SignalRConnection extends KeyedRefCountedObject<ConnectionOptions> 
   /**
    * observer for connected state
    */
-  public readonly connected$ = this.state$
-    .pipe(
-      map((v) => v === HubConnectionState.Connected),
-    );
+  public readonly connected$: Observable<boolean>;
 
 
   /**
@@ -95,6 +104,10 @@ export class SignalRConnection extends KeyedRefCountedObject<ConnectionOptions> 
    */
   constructor(key: ConnectionOptions) {
     super(key);
+    this.connected$ = this.state$
+    .pipe(
+      map((v) => v === HubConnectionState.Connected),
+    );
   }
 
   /**
@@ -102,7 +115,7 @@ export class SignalRConnection extends KeyedRefCountedObject<ConnectionOptions> 
    * @param options connection options
    */
   public static getConnection(options: ConnectionOptions): SignalRConnection {
-    return this._connections.getByKey(options);
+    return SignalRConnection._connections.getByKey(options);
   }
 
   /**

@@ -21,7 +21,7 @@
     ],
     "paths": {
       "@code-art/rx-signalr-core": [
-        "projects/rx-signalr-core/src/public-api"
+        "dist/rx-signalr-core"
       ],
     }
   },
