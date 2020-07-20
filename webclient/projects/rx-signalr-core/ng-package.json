@@ -3,7 +3,7 @@
   "dest": "../../dist/rx-signalr-core",
   "lib": {
     "entryFile": "src/public-api.ts",
-    "amdId": "@code-art/rx-signalr-core",
+    "amdId": "@code-art-eg/rx-signalr-core",
     "umdId": "codeArt.rxSignalrCore",
     "umdModuleIds": {
       "@microsoft/signalr" : "signalR"

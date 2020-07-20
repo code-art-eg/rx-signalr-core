@@ -20,7 +20,7 @@
       "dom"
     ],
     "paths": {
-      "@code-art/rx-signalr-core": [
+      "@code-art-eg/rx-signalr-core": [
         "dist/rx-signalr-core"
       ],
     }

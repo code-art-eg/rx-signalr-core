@@ -1,4 +1,4 @@
-import { signalRObservable } from '@code-art/rx-signalr-core';
+import { signalRObservable } from '@code-art-eg/rx-signalr-core';
 import { Injectable } from '@angular/core';
 import { HubConnectionBuilder, IRetryPolicy, LogLevel } from '@microsoft/signalr';
 

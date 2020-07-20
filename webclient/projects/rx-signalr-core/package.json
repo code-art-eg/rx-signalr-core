@@ -1,6 +1,21 @@
 {
-  "name": "@code-art/rx-signalr-core",
-  "version": "1.0.1",
+  "name": "@code-art-eg/rx-signalr-core",
+  "version": "1.0.2",
+  "description": "Library that wraps SignalR Core events as RxJs Observables.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/code-art-eg/rx-signalr-core.git"
+  },
+  "keywords": [
+    "signalr",
+    "rxjs"
+  ],
+  "author": "Sherif Elmetainy (Code Art)",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/code-art-eg/rx-signalr-core/issues"
+  },
+  "homepage": "https://github.com/code-art-eg/rx-signalr-core#readme",
   "peerDependencies": {
     "@microsoft/signalr": "^3.1.2",
     "rxjs": "^6.4.0"
