@@ -22,7 +22,7 @@
     "paths": {
       "@code-art-eg/rx-signalr-core": [
         "dist/rx-signalr-core"
-      ],
+      ]
     }
   },
   "angularCompilerOptions": {
