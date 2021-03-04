@@ -98,6 +98,7 @@ export abstract class RefCountedObject {
   /**
    * Trigger error. The complete event will complete and all reference counts will stop. OnStop will not be called.
    * complete$ will not tigger an error
+   *
    * @param error Error event
    */
   protected onError(error: any): void {

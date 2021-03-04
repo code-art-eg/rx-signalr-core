@@ -100,6 +100,7 @@ export class SignalRConnection extends KeyedRefCountedObject<ConnectionOptions> 
 
   /**
    * consturctor.
+   *
    * @param key connection options
    */
   constructor(key: ConnectionOptions) {
@@ -223,6 +224,7 @@ export class SignalRConnection extends KeyedRefCountedObject<ConnectionOptions> 
 
   /**
    * wait for hub connection to be in a given status (connected or disconnected)
+   *
    * @param status status to wait for
    */
   public async waitForStatus(status: boolean): Promise<void> {
@@ -238,6 +240,7 @@ export class SignalRConnection extends KeyedRefCountedObject<ConnectionOptions> 
 
   /**
    * invoke a method on the hub
+   *
    * @param methodName method name
    * @param args argument list
    */
@@ -250,6 +253,7 @@ export class SignalRConnection extends KeyedRefCountedObject<ConnectionOptions> 
 
   /**
    * Subscribe to an event
+   *
    * @param eventName event name
    * @param fn event callback
    */
@@ -271,6 +275,7 @@ export class SignalRConnection extends KeyedRefCountedObject<ConnectionOptions> 
 
   /**
    * Unsubscribe from an event
+   *
    * @param id id of subscription to remove
    */
   public off(id: number): void {
@@ -288,6 +293,7 @@ export class SignalRConnection extends KeyedRefCountedObject<ConnectionOptions> 
 
   /**
    * Join groups an return a function that can be used to leave all the groups joined.
+   *
    * @param groups groups to join
    */
   public joinGroups(groups: string | Array<string> | undefined): () => Promise<void> {
@@ -312,6 +318,7 @@ export class SignalRConnection extends KeyedRefCountedObject<ConnectionOptions> 
 
   /**
    * stops a list of groups
+   *
    * @param groups groups to stop
    */
   private async stopGroups(groups: string | Array<string> | undefined): Promise<void> {
@@ -329,6 +336,7 @@ export class SignalRConnection extends KeyedRefCountedObject<ConnectionOptions> 
 
   /**
    * join a group
+   *
    * @param name group to join
    */
   private joinGroup(name: string): void {

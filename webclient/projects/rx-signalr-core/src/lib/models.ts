@@ -54,12 +54,14 @@ export interface SignalRObservable<T> extends Observable<T> {
 
   /**
    * wait for server connection status to be as the desired statys
+   *
    * @param status desired status
    */
   waitForStatus(status: boolean): Promise<void>;
 
   /**
    * invoke a server side method
+   *
    * @param methodName method name
    * @param args argument list
    */

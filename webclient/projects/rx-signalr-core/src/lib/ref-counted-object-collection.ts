@@ -11,6 +11,7 @@ export class RefCountedObjectCollection<TItem extends KeyedRefCountedObject<TKey
 
   /**
    * constructor. initializes the collection to empty values.
+   *
    * @param _factory factory to create a ref counted object
    */
   constructor(
@@ -20,6 +21,7 @@ export class RefCountedObjectCollection<TItem extends KeyedRefCountedObject<TKey
 
   /**
    * Get object by key.
+   *
    * @param key key of the object to retrieve. If it doesn't exists, factory will be used to create one.
    */
   public getByKey(key: TKey): TItem {
@@ -58,6 +60,7 @@ export class RefCountedObjectCollection<TItem extends KeyedRefCountedObject<TKey
 
   /**
    * call stop for a single item
+   *
    * @param key key of item to stop
    */
   public async stopItemByKey(key: TKey): Promise<void> {
@@ -70,6 +73,7 @@ export class RefCountedObjectCollection<TItem extends KeyedRefCountedObject<TKey
 
   /**
    * find an item by key
+   *
    * @param key key for item to look for
    */
   private findItemByKey(key: TKey): TItem | undefined {
@@ -83,6 +87,7 @@ export class RefCountedObjectCollection<TItem extends KeyedRefCountedObject<TKey
 
   /**
    * call stop on an item
+   *
    * @param item item to stop
    * @param untilCompleted whether to continue calling stop until complete is triggered
    */

@@ -25,6 +25,7 @@ class SignalRObservableImpl<T> extends Observable<T> implements SignalRObservabl
 
   /**
    * create a signalR observable
+   *
    * @param options options
    */
   constructor(
@@ -45,6 +46,7 @@ class SignalRObservableImpl<T> extends Observable<T> implements SignalRObservabl
 
   /**
    * Handle new subscribers
+   *
    * @param this this observable
    * @param observer observer
    */
@@ -76,6 +78,7 @@ class SignalRObservableImpl<T> extends Observable<T> implements SignalRObservabl
 
   /**
    * wait for server connection status to be as the desired statys
+   *
    * @param status desired status
    */
   public async waitForStatus(status: boolean): Promise<void> {
@@ -90,6 +93,7 @@ class SignalRObservableImpl<T> extends Observable<T> implements SignalRObservabl
 
   /**
    * invoke a server side method
+   *
    * @param methodName method name
    * @param args argument list
    */
@@ -101,6 +105,7 @@ class SignalRObservableImpl<T> extends Observable<T> implements SignalRObservabl
 
   /**
    * Handle new subscribers
+   *
    * @param this this observable
    * @param observer observer
    */
@@ -152,6 +157,7 @@ class SignalRObservableImpl<T> extends Observable<T> implements SignalRObservabl
 
 /**
  * creates an observable that emits events when signalR events occur
+ *
  * @param options signalR options
  */
 export function signalRObservable<T>(options: SignalRObservableOptions): SignalRObservable<T> {

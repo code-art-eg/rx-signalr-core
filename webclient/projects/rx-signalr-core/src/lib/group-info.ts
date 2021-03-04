@@ -10,6 +10,7 @@ import { LogLevel } from '@microsoft/signalr';
 export class GroupInfo extends KeyedRefCountedObject<string> {
   /**
    * constructor
+   *
    * @param _connection signalR hub info
    * @param name group name
    */
@@ -42,6 +43,7 @@ export class GroupInfo extends KeyedRefCountedObject<string> {
 
   /**
    * call leave group or leave group
+   *
    * @param action action to call join group or leave group
    */
   private async invokeGroupAction(action: 'joinGroup' | 'leaveGroup'): Promise<void> {
@@ -59,6 +61,7 @@ export class GroupInfo extends KeyedRefCountedObject<string> {
 
   /**
    * handle invokation error
+   *
    * @param action action to log
    * @param error error to log
    */
@@ -71,6 +74,7 @@ export class GroupInfo extends KeyedRefCountedObject<string> {
 
   /**
    * Log joinGroup/leaveGroup events if logging is enabled
+   *
    * @param action action to log
    */
   private log(action: 'joinGroup' | 'leaveGroup', done: boolean): void {
