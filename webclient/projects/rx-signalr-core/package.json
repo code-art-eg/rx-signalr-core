@@ -1,6 +1,6 @@
 {
   "name": "@code-art-eg/rx-signalr-core",
-  "version": "10.0.0",
+  "version": "11.0.0",
   "description": "Library that wraps SignalR Core events as RxJs Observables.",
   "repository": {
     "type": "git",
@@ -20,7 +20,7 @@
     "tslib": "^2.0.0"
   },
   "peerDependencies": {
-    "@microsoft/signalr": "^3.1.2",
+    "@microsoft/signalr": "~5.0.3",
     "rxjs": "^6.4.0"
   }
 }
