@@ -16,7 +16,7 @@ export interface TimerEvent {
   providedIn: 'root',
 })
 export class TimerService {
-  private readonly builder = new HubConnectionBuilder().withUrl(HUB_ADDRESS)
+  public readonly builder = new HubConnectionBuilder().withUrl(HUB_ADDRESS)
     .withAutomaticReconnect(policy)
     .configureLogging(LogLevel.Debug);
   public readonly timer12 = signalRObservable<TimerEvent>({

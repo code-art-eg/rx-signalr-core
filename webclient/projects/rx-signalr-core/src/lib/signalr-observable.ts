@@ -7,6 +7,10 @@ import { SignalRConnection } from './signalr-connection';
  * implementation for SignalRObservable
  */
 class SignalRObservableImpl<T> extends Observable<T> implements SignalRObservable<T> {
+  /**
+   * connected status observable
+   */
+  public readonly connected$: Observable<boolean>;
 
   /**
    * internal hub
@@ -17,11 +21,6 @@ class SignalRObservableImpl<T> extends Observable<T> implements SignalRObservabl
    * options
    */
   private readonly _options: SignalRObservableOptions;
-
-  /**
-   * connected status observable
-   */
-  public readonly connected$: Observable<boolean>;
 
   /**
    * create a signalR observable
@@ -50,8 +49,8 @@ class SignalRObservableImpl<T> extends Observable<T> implements SignalRObservabl
    * @param this this observable
    * @param observer observer
    */
-  private static handleSubscriber<T>(this: Observable<T>, observer: Subscriber<T>): TeardownLogic {
-    const obs = this as SignalRObservableImpl<T>;
+  private static handleSubscriber<U>(this: Observable<U>, observer: Subscriber<U>): TeardownLogic {
+    const obs = this as SignalRObservableImpl<U>;
     return obs.handleSubscriberImpl(observer);
   }
 

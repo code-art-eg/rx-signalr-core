@@ -16,8 +16,8 @@ const hubIdCallbackIdSymbol = Symbol('hubCallbackId');
  * hub call back function (with unique id tracking)
  */
 interface HubCallbackFunction {
-  (...args: any[]): any;
   [hubIdCallbackIdSymbol]?: number;
+  (...args: any[]): any;
 }
 
 /**
@@ -58,6 +58,18 @@ export class SignalRConnection extends KeyedRefCountedObject<ConnectionOptions> 
     sameConnectionOptions,
   );
 
+  /**
+   * observer for current connection state
+   */
+  public readonly state$: Observable<HubConnectionState>;
+
+  /**
+   * observer for connected state
+   */
+  public readonly connected$: Observable<boolean>;
+
+
+
   /** @internal */
   private _hubConnection?: HubConnection;
 
@@ -87,28 +99,17 @@ export class SignalRConnection extends KeyedRefCountedObject<ConnectionOptions> 
   private _retryConnectHandle?: any;
 
   /**
-   * observer for current connection state
-   */
-  public readonly state$ = this._state$
-    .pipe(shareReplay(1));
-
-  /**
-   * observer for connected state
-   */
-  public readonly connected$: Observable<boolean>;
-
-
-  /**
    * consturctor.
    *
    * @param key connection options
    */
   constructor(key: ConnectionOptions) {
     super(key);
+    this.state$ = this._state$.pipe(shareReplay(1));
     this.connected$ = this.state$
-    .pipe(
-      map((v) => v === HubConnectionState.Connected),
-    );
+      .pipe(
+        map((v) => v === HubConnectionState.Connected),
+      );
   }
 
   /**
@@ -142,10 +143,8 @@ export class SignalRConnection extends KeyedRefCountedObject<ConnectionOptions> 
       }
 
       // if logging is enabled log state change
-      this.log(LogLevel.Information, `Connection state changed from ${
-        getConnectionStateName(oldState)
-        } to ${
-        getConnectionStateName(newState)
+      this.log(LogLevel.Information, `Connection state changed from ${getConnectionStateName(oldState)
+        } to ${getConnectionStateName(newState)
         }`);
 
       // emit new state
@@ -156,10 +155,8 @@ export class SignalRConnection extends KeyedRefCountedObject<ConnectionOptions> 
         // 3. Failure to connect to the server.
         // In cases 2 & 3 complete will be false. An error will be triggered and complete will be emitted
         if (!this.complete) {
-          this.onError(new Error(`SignalR Connection ${
-            this.name
-            } ${
-            oldState === HubConnectionState.Connecting ?
+          this.onError(new Error(`SignalR Connection ${this.name
+            } ${oldState === HubConnectionState.Connecting ?
               'failed' : 'was lost'
             }.`));
         }
