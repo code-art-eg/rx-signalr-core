@@ -20,7 +20,7 @@ async function launchServerInternal(usePort?: number): Promise<number> {
     const process = serverRequire('process');
     const path = serverRequire('path');
     const ps = childProcess.spawn(
-      path.join(process.cwd(), '..', 'netcoreapp', 'SignalrTestApp', 'bin', 'Debug', 'netcoreapp3.1', 'SignalrTestApp.exe'),
+      path.join(process.cwd(), '..', 'netcoreapp', 'SignalrTestApp', 'bin', 'Debug', 'net5.0', 'SignalrTestApp.exe'),
       p ? [p.toString()] : ['0']
     );
     return new Promise<number>((resolve, reject) => {
